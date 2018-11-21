@@ -1,5 +1,6 @@
 # my defined file types
 *.mylogs
+*.tsg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
