@@ -3,14 +3,26 @@
 <head>
 <meta charset="utf-8"> 
 <title>菜鸟教程(runoob.com)</title> 
+<style>
+li {
+	 text-align:left;
+	 color:black;
+	 weight:200;
+   } 
+</style>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 </script>
 <script>
 $(document).ready(function(){
+  $("li").mouseover(function(){
+       $("li").css("background-color","white");
+       $(this).css("background-color","yellow");
+  });
   $("li").click(function(){
     //$(this).hide();
 	//$(this).html( "Next Step..." );
-	$(this).css('color','blue');
+	$("li").css({'color':'black', 'font-weight':'200'});
+	$(this).css({'color':'blue', 'font-weight':'1000'});	
 	var color = $(this).css('color');
 	console.log(color);
   });
@@ -19,11 +31,11 @@ $(document).ready(function(){
 </head>
 <body>
 <p>请问什么时候发货？</p>
-<ol>
+<ul>
 <li>疗效</li>
 <li>物流相关</li>
 <li>价格咨询</li>
 <li>后期服务</li>
-</ol>
+</ul>
 </body>
 </html>
