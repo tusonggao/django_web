@@ -19,6 +19,7 @@ li {
 	cursor:pointer;
 } 
 table {
+  display:none;
   font-weight:200;
   cursor:pointer;
 }
@@ -27,6 +28,18 @@ table {
 </script>
 <script>
 $(document).ready(function(){
+
+  var table_shown = false;
+  $("input").click(function(){
+    if(table_shown==false){
+      $("table").show();
+      table_shown = true;
+    }       
+    else{
+      $("table").hide();
+      table_shown = false;
+    }
+  });
 
   $("li").click(function(){
     $("li").css({'color':'black', 'font-weight':'200'});
@@ -41,7 +54,8 @@ $(document).ready(function(){
     $("li").css({'color':'black', 'font-weight':'200'});
     //$(this).css({'color':'blue', 'font-weight':'1000'});
 
-    $(this).parent("table").siblings("li").css({'color':'blue', 'font-weight':'1000'})
+    // $(this).parent("table").siblings("li").css({'color':'blue', 'font-weight':'1000'})
+    $(this).parent("table").siblings("li").html('bian bian bian')
   });
 
 
@@ -53,11 +67,12 @@ $(document).ready(function(){
 	 //    console.log(color);
   // });
 });
+
 </script>
 </head>
 <body>
 
-
+<input type="checkbox" name="showall" value="展开所有子选项">展开所有子选项</input>
 <div class="question_div">
     <p class="question_content">“请问什么时候发货？”</p>
 </div>
@@ -113,6 +128,14 @@ $(document).ready(function(){
     </table>
     </div>
 </ul>
+</div>
+<div>
+  <button type="last_one">上一题</button>
+  <button type="history">历史查看</button>
+  <button type="next_one">下一题</button>
+<!--   <input type="submit" value="上一题">
+  <input type="submit" value="历史查看">
+  <input type="submit" value="下一题"> -->
 </div>
 </body>
 </html>
