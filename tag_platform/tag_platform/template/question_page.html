@@ -16,18 +16,35 @@ li {
 	text-align:left;
 	color:black;
 	font-weight:200;
-	cursor:pointer
+	cursor:pointer;
 } 
+table {
+  font-weight:200;
+  cursor:pointer;
+}
 </style>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 </script>
 <script>
 $(document).ready(function(){
-  $(".answer_item + li").click(function(){
+
+  $("li").click(function(){
     $("li").css({'color':'black', 'font-weight':'200'});
     $(this).css({'color':'blue', 'font-weight':'1000'});
     $(this).siblings("table").toggle()
   });
+
+  $("tr").click(function(){
+    $("tr").css({'color':'black', 'font-weight':'200'});
+    $(this).css({'color':'blue', 'font-weight':1000});
+
+    $("li").css({'color':'black', 'font-weight':'200'});
+    //$(this).css({'color':'blue', 'font-weight':'1000'});
+
+    $(this).parent("table").siblings("li").css({'color':'blue', 'font-weight':'1000'})
+  });
+
+
   // $(".answer_item + li").click(function(){
 	 //    $(".answer_item").css({'color':'black', 'font-weight':'200'});
 	 //    $(this).css({'color':'blue', 'font-weight':'1000'});
