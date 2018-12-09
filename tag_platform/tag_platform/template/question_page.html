@@ -43,6 +43,8 @@ $(document).ready(function(){
 
   $("li").click(function(){
     $("li").css({'color':'black', 'font-weight':'200'});
+    // $("tr").parents().siblings(".answer_item").child('table').children('tr').css({'color':'black', 'font-weight':'200'});
+    $("tr").parents().siblings(".answer_item").children('tr').css({'color':'black', 'font-weight':'200'});
     $(this).css({'color':'blue', 'font-weight':'1000'});
     $(this).siblings("table").toggle()
   });
