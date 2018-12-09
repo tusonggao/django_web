@@ -45,6 +45,8 @@
 				 <tr ><td>test3<td></tr>
 			 </table>
 		 </div>
+		 <a href="http://www.baidu.com" target="_blank">链接1</a>
+		 <a href="http://www.bing.com" target="_blank">链接2</a>
 	</div>
 </body>
 <script>
@@ -59,6 +61,9 @@
 		
 		$(".test2").on("click",function(){
 			$(this).find("table").toggleClass("showClass");
+		});
+		$("[href]").on("click",function(){
+			$(this).css({'color':'yellow'});			
 		});
 	});
 </script>
