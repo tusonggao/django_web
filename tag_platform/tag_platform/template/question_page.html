@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8"> 
-<title>菜鸟教程(runoob.com)</title> 
+<title>标注测试平台</title> 
 <style>
 body { background-color: #99ee99}
 /*.question_div {text-align:center;} */
@@ -54,8 +54,9 @@ $(document).ready(function(){
     $("li").css({'color':'black', 'font-weight':'200'});
     //$(this).css({'color':'blue', 'font-weight':'1000'});
 
-    // $(this).parent("table").siblings("li").css({'color':'blue', 'font-weight':'1000'})
-    $(this).parent("table").siblings("li").html('bian bian bian')
+    $(this).parent("table").siblings("li").css({'color':'blue', 'font-weight':'1000'});
+    // $(this).parent("table").siblings("li").html('bian bian bian');
+    $(this).parent("table").html('bian bian bian');
   });
 
 
@@ -129,7 +130,13 @@ $(document).ready(function(){
     </div>
 </ul>
 </div>
-<div>
+
+<div rows="selected_class">
+当前选定类别：
+</div>
+<br>
+
+<div class="navigate_btn">
   <button type="last_one">上一题</button>
   <button type="history">历史查看</button>
   <button type="next_one">下一题</button>
