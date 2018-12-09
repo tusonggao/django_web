@@ -54,9 +54,12 @@ $(document).ready(function(){
     $("li").css({'color':'black', 'font-weight':'200'});
     //$(this).css({'color':'blue', 'font-weight':'1000'});
 
-    $(this).parent("table").siblings("li").css({'color':'blue', 'font-weight':'1000'});
+    $(this).parents().siblings("li").css({'color':'blue', 'font-weight':'1000'});
     // $(this).parent("table").siblings("li").html('bian bian bian');
-    $(this).parent("table").html('bian bian bian');
+    // console.log('text is ', $(this).parents().siblings("li").text());
+  
+    var class_text = $(this).parents().siblings("li").text() + " >> " + $(this).text()
+    $(".selected_class").html("当前选定类别： " + class_text)
   });
 
 
@@ -131,7 +134,7 @@ $(document).ready(function(){
 </ul>
 </div>
 
-<div rows="selected_class">
+<div class="selected_class">
 当前选定类别：
 </div>
 <br>
