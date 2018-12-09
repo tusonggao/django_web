@@ -24,8 +24,12 @@ table {
   cursor:pointer;
 }
 
-#showall {
-    font-size: 12px;
+#showall{
+    font-size: 10px;
+}
+
+.selected_class {
+    font-size: 14px;
 }
 </style>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
@@ -46,10 +50,14 @@ $(document).ready(function(){
   });
 
   $("li").click(function(){
-    $("li").css({'color':'black', 'font-weight':'200'});
+    // $("li").css({'color':'black', 'font-weight':'200'});
     // $("tr").parents().siblings(".answer_item").child('table').children('tr').css({'color':'black', 'font-weight':'200'});
-    $("tr").parents().siblings(".answer_item").children('tr').css({'color':'black', 'font-weight':'200'});
-    $(this).css({'color':'blue', 'font-weight':'1000'});
+    //$(this).parent().siblings().children('li').children('tr').css({'color':'black', 'font-weight':'200'});
+    
+    //console.log($(this).parent().siblings().children('li').text());
+
+    //$(this).css({'color':'blue', 'font-weight':'1000'});
+
     $(this).siblings("table").toggle()
   });
 
@@ -82,7 +90,13 @@ $(document).ready(function(){
 </head>
 <body style="margin-left:150px;">
 
-<input type="checkbox" id="showall" value="展开所有子选项">展开所有子选项</input>
+<div>
+<div style="float:left; margin-right:20px">
+<input type="checkbox" id="showall" >展开所有子选项</input>
+</div>
+<div class="selected_class" style="float:left; margin-left:30px; font-family:KaiTi" >当前选定类别：</div>
+</div>
+
 <br>
 
 <div class="question_div">
@@ -142,10 +156,7 @@ $(document).ready(function(){
 </ul>
 </div>
 
-<div class="selected_class">
-当前选定类别：
-</div>
-<br>
+
 
 <div class="navigate_btn">
   <button type="last_one">上一题</button>
