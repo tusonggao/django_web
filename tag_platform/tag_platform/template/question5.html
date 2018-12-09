@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>在线尝试 Bootstrap 实例</title>
+   <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	
+	<style>
+		.showClass {
+			display:none;	
+		}
+		.hideClass {
+			display:none;	
+		}
+	</style>
+</head>
+<body>
+     <div>
+		 <div id="div1" class="test">
+			 <span>应用1</span>
+			 <table style="display:none;margin-left:20px;">
+				 <tr ><td>test1<td></tr>
+				 <tr ><td>test1<td></tr>
+				 <tr ><td>test1<td></tr>
+				 <tr ><td>test1<td></tr>
+			 </table>
+		 </div> 
+		 <div class="test">
+			 <span>应用2</span>
+			 <table style="display:none;margin-left:20px;">
+				 <tr ><td>test2<td><td>test2<td></tr>
+				 <tr ><td>test2<td></tr>
+				 <tr ><td>test2<td></tr>
+				 <tr ><td>test2<td></tr>
+			 </table>
+		 </div>
+		 
+		 <div class="test2">
+			 <span id="question_text">应用3</span>
+			 <table style="margin-left:20px;" class="table_items">
+				 <tr ><td>test3<td></tr>
+				 <tr ><td>test3<td></tr>
+				 <tr ><td>test3<td></tr>
+				 <tr ><td>test3<td></tr>
+			 </table>
+		 </div>
+	</div>
+</body>
+<script>
+	$(function(){
+		$(".test").on("click",function(){
+			if($(this).find("table").css("display")=="none") {
+				$(this).find("table").css("display","block");
+			} else {
+				$(this).find("table").css("display","none");
+			}
+		});
+		
+		$("#question_text").on("click",function(){
+			$(".table_items").toggleClass("showClass");
+		});
+	});
+</script>
+</html>
