@@ -23,6 +23,10 @@ table {
   font-weight:200;
   cursor:pointer;
 }
+
+#showall {
+    font-size: 12px;
+}
 </style>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 </script>
@@ -76,9 +80,11 @@ $(document).ready(function(){
 
 </script>
 </head>
-<body>
+<body style="margin-left:150px;">
 
-<input type="checkbox" name="showall" value="展开所有子选项">展开所有子选项</input>
+<input type="checkbox" id="showall" value="展开所有子选项">展开所有子选项</input>
+<br>
+
 <div class="question_div">
     <p class="question_content">“请问什么时候发货？”</p>
 </div>
