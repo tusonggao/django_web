@@ -23,39 +23,78 @@ li {
 </script>
 <script>
 $(document).ready(function(){
-  // $("li").mouseover(function(){
-  //     $("li").css("background-color","white");
-  //     $(this).css("background-color","yellow");
-	 //  var weight = $(this).css('font-weight');
-	 //  console.log('size is ', weight);
-  // });
-  $("li").click(function(){
-      //$(this).hide();
-	  //$(this).html( "Next Step..." );
-	  $("li").css({'color':'black', 'font-weight':'200'});
-	  $(this).css({'color':'blue', 'font-weight':'1000'});	
-	  var color = $(this).css('color');
-	  console.log(color);
+  $(".answer_item + li").click(function(){
+    $("li").css({'color':'black', 'font-weight':'200'});
+    $(this).css({'color':'blue', 'font-weight':'1000'});
+    $(this).siblings("table").toggle()
   });
+  // $(".answer_item + li").click(function(){
+	 //    $(".answer_item").css({'color':'black', 'font-weight':'200'});
+	 //    $(this).css({'color':'blue', 'font-weight':'1000'});
+  //     //$(this).children("table").toggle()
+	 //    var color = $(this).css('color');
+	 //    console.log(color);
+  // });
 });
 </script>
 </head>
 <body>
+
+
 <div class="question_div">
     <p class="question_content">“请问什么时候发货？”</p>
 </div>
 <div class="answer_part">
 <ul>
-    <li>疗效</li>
+    <div class="answer_item">
+    <li>订单相关</li>
     <table style="margin-left:20px;">
-        <tr><td>消炎<td></tr>
-        <tr><td>止痛<td></tr>
-        <tr><td>止血<td></tr>
-        <tr><td>去痒<td></tr>
+        <tr><td>查询订单号<td></tr>
+        <tr><td>该收货信息<td></tr>
+        <tr><td>修改/合并订单<td></tr>
+        <tr><td>取消订单<td></tr>
+        <tr><td>订单查询<td></tr>
+        <tr><td>订单常见问题<td></tr>
     </table>
-    <li>物流相关</li>
-    <li>价格咨询</li>
-    <li>后期服务</li>
+    </div>
+
+    <div class="answer_item">
+    <li>物流类</li>
+    <table style="margin-left:20px;">
+        <tr><td>物流查询<td></tr>
+        <tr><td>催发货<td></tr>
+        <tr><td>催物流<td></tr>
+        <tr><td>制定快递公司<td></tr>
+        <tr><td>问所需时间<td></tr>
+        <tr><td>其他物流常见问题<td></tr>
+    </table>
+    </div>
+
+    <div class="answer_item">
+    <li>疾病咨询</li>
+    <table style="margin-left:20px;">
+        <tr><td>症状描述 <td></tr>
+        <tr><td>已知疾病<td></tr>
+        <tr><td>堕胎<td></tr>
+        <tr><td>疾病咨询常见问题<td></tr>
+    </table>
+    </div>
+
+    <div class="answer_item">
+    <li>发票</li>
+    <table style="margin-left:20px;">
+        <tr><td>开发票<td></tr>
+        <tr><td>发票常见问题<td></tr>
+    </table>
+    </div>
+
+    <div class="answer_item">
+    <li>售后</li>
+    <table style="margin-left:20px;">
+        <tr><td>退货<td></tr>
+        <tr><td>售后常见问题<td></tr>
+    </table>
+    </div>
 </ul>
 </div>
 </body>
