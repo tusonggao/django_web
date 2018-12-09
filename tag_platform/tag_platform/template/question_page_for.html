@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>标注测试平台</title> 
+<style>
+body { background-color: #99ee99}
+/*.question_div {text-align:center;} */
+.question_content {
+    font-size: 25px; 
+    font-family: FangSong;
+}
+li {
+    font-size: 20px; 
+    /*font-family: STFangsong; */
+	text-align:left;
+	color:black;
+	font-weight:200;
+	cursor:pointer;
+} 
+table {
+  display:none;
+  font-weight:200;
+  cursor:pointer;
+}
+
+#showall{
+    font-size: 10px;
+}
+
+.selected_class {
+    font-size: 14px;
+}
+</style>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+
+  var table_shown = false;
+  $("input").click(function(){
+    if(table_shown==false){
+      $("table").show();
+      table_shown = true;
+    }       
+    else{
+      $("table").hide();
+      table_shown = false;
+    }
+  });
+
+  $("li").click(function(){
+    // $("li").css({'color':'black', 'font-weight':'200'});
+    // $("tr").parents().siblings(".answer_item").child('table').children('tr').css({'color':'black', 'font-weight':'200'});
+    //$(this).parent().siblings().children('li').children('tr').css({'color':'black', 'font-weight':'200'});
+    
+    //console.log($(this).parent().siblings().children('li').text());
+
+    //$(this).css({'color':'blue', 'font-weight':'1000'});
+
+    $(this).siblings("table").toggle()
+  });
+
+  $("tr").click(function(){
+    $("tr").css({'color':'black', 'font-weight':'200'});
+    $(this).css({'color':'blue', 'font-weight':1000});
+
+    $("li").css({'color':'black', 'font-weight':'200'});
+    //$(this).css({'color':'blue', 'font-weight':'1000'});
+
+    $(this).parents().siblings("li").css({'color':'blue', 'font-weight':'1000'});
+    // $(this).parent("table").siblings("li").html('bian bian bian');
+    // console.log('text is ', $(this).parents().siblings("li").text());
+  
+    var class_text = $(this).parents().siblings("li").text() + " >> " + $(this).text()
+    $(".selected_class").html("当前选定类别： " + class_text)
+  });
+
+
+  // $(".answer_item + li").click(function(){
+	 //    $(".answer_item").css({'color':'black', 'font-weight':'200'});
+	 //    $(this).css({'color':'blue', 'font-weight':'1000'});
+  //     //$(this).children("table").toggle()
+	 //    var color = $(this).css('color');
+	 //    console.log(color);
+  // });
+});
+
+</script>
+</head>
+<body style="margin-left:150px;">
+
+<div>
+<div style="float:left; margin-right:20px">
+<input type="checkbox" id="showall" >展开所有子选项</input>
+</div>
+<div class="selected_class" style="float:left; margin-left:30px; font-family:KaiTi" >当前选定类别：</div>
+</div>
+
+<br>
+
+<div class="question_div">
+    <p class="question_content">“请问什么时候发货？”</p>
+</div>
+<div class="answer_part">
+<ul>
+    <div class="answer_item">
+    <li>订单相关</li>
+    <table style="margin-left:20px;">
+        <tr><td>查询订单号<td></tr>
+        <tr><td>该收货信息<td></tr>
+        <tr><td>修改/合并订单<td></tr>
+        <tr><td>取消订单<td></tr>
+        <tr><td>订单查询<td></tr>
+        <tr><td>订单常见问题<td></tr>
+    </table>
+    </div>
+
+    <div class="answer_item">
+    <li>物流类</li>
+    <table style="margin-left:20px;">
+        <tr><td>物流查询<td></tr>
+        <tr><td>催发货<td></tr>
+        <tr><td>催物流<td></tr>
+        <tr><td>制定快递公司<td></tr>
+        <tr><td>问所需时间<td></tr>
+        <tr><td>其他物流常见问题<td></tr>
+    </table>
+    </div>
+
+    <div class="answer_item">
+    <li>疾病咨询</li>
+    <table style="margin-left:20px;">
+        <tr><td>症状描述 <td></tr>
+        <tr><td>已知疾病<td></tr>
+        <tr><td>堕胎<td></tr>
+        <tr><td>疾病咨询常见问题<td></tr>
+    </table>
+    </div>
+
+    <div class="answer_item">
+    <li>发票</li>
+    <table style="margin-left:20px;">
+        <tr><td>开发票<td></tr>
+        <tr><td>发票常见问题<td></tr>
+    </table>
+    </div>
+
+    <tbody>
+     {% for house in page_obj %}
+        <tr>
+            <td>
+            {{ house.title }}
+            </td>
+            <td>
+            {{ house.house }}
+            </td>
+            <td>
+            {{ house.bedroom }}
+            </td>
+             <td>
+             {{ house.area }}
+            </td>
+             <td>
+             {{ house.year }}
+            </td>
+            <td>
+             {{ house.location }}
+            </td>
+             <td>
+            {{ house.total_price }}
+            </td>
+            <td>
+                {{ house.unit_price }}
+            </td>
+     {% endfor %}
+        </tr>
+    </tbody>
+</ul>
+</div>
+
+
+
+<div class="navigate_btn">
+  <button type="last_one">上一题</button>
+  <button type="history">历史查看</button>
+  <button type="next_one">下一题</button>
+<!--   <input type="submit" value="上一题">
+  <input type="submit" value="历史查看">
+  <input type="submit" value="下一题"> -->
+</div>
+</body>
+</html>
