@@ -1,6 +1,7 @@
 # my defined file types
 *.mylogs
 *.tsg
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
