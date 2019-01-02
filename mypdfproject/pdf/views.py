@@ -99,6 +99,7 @@ def pdf_range_extract(request):
     else:
         # 如果用户没有通过POST，提交生成空表单
         form = PdfExtractForm()
+        return form
 
 
 def pdf_merge(request):
