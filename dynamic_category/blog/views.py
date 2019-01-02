@@ -6,7 +6,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse(u'Hello World')
+    return HttpResponse(u'Hello, Django')
 
 class CategoryListView(ListView):
     model = Category
