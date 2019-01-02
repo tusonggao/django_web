@@ -5,9 +5,7 @@ import os
 import PyPDF2
 import zipfile
 
-
 # Create your views here.
-
 
 def pdf_single_page_extract(request):
     if request.method == 'POST':
@@ -152,9 +150,6 @@ def pdf_merge(request):
     return render(request, 'pdf/pdf_merge.html', {'form': form})
 
 
-
-
-
 def pdf_replace(request):
     if request.method == 'POST':
         # 如果用户通过POST提交
@@ -173,7 +168,7 @@ def pdf_replace(request):
 
 
             # 获取文件2第一部分-人为可读页码
-         page_start = 1
+            page_start = 1
             page_end = page - 1
 
             pdfOutputFile1 = open(os.path.join('media', 'part_1.pdf'), 'wb+')
