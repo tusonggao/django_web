@@ -1,7 +1,13 @@
 <h1>this is the todo page.</h1>
 
-<ul>
+<!-- ul>
     <li>To_Do_Item_A</li>
     <li>To_Do_Item_B</li>
     <li>To_Do_Item_C</li>
+</ul -->
+
+<ul>
+    {% for todo_item in all_items %}
+        <li>{{ todo_item.content }}</li>
+    {% endfor %}
 </ul>
