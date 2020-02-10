@@ -1,0 +1,57 @@
+{% extends "show_recommend_outcome/base.html" %}
+
+{% block content %}
+
+{% if page_obj %}
+<h3 style='text-align:center;'>主商品列表</h3>
+<table class="table table-striped">
+    <thead>
+        <tr><th>序号</th>
+            <th>商品编码</th>
+            <th>商品名称</th>
+            <th>类别编码</th>
+            <th>类别名称</th>
+            <th>商品价格</th>
+            <th>半年销量</th>
+            <th>对比链接</th>
+        </tr>
+    </thead>
+    <tbody>
+     {% for item in page_obj %}
+        <tr>
+            <td>
+                {{ item.num }}
+            </td>
+            <td>
+                {{ item.product_code }}
+            </td>
+            <td>
+                <a href='http://www.jianke.com/product/{{ item.product_code }}.html' target='_blank'>
+                    {{ item.product_name }}
+                </a>
+            </td>
+            <td>
+                {{ item.product_class_code }}
+            </td>
+            <td>
+                {{ item.product_class_name }}
+            </td>
+             <td>
+                 {{ item.product_price }}
+            </td>
+             <td>
+                 {{ item.amount }}
+            </td>
+            <td>
+                <a href='merged/product_code/{{ item.product_code }}' target='_blank'>推荐结果对比</a>
+            </td>
+     {% endfor %}
+        </tr>
+    </tbody></table>
+
+{% else %}
+{# 注释: 这里可以换成自己的对象 #}
+    <p>没有任何推荐商品信息</p>
+{% endif %}
+
+{% endblock %}

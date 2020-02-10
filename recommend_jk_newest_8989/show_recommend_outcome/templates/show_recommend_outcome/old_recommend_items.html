@@ -1,0 +1,99 @@
+{% extends "show_recommend_outcome/base.html" %}
+
+<style>
+    .div_float_right{
+        float: right;
+    }
+</style>
+
+{% block title %}展示目前线上推荐结果信息{% endblock %}
+
+{% block content %}
+
+<h3>
+    当前商品信息：
+</h3>
+<table class="table table-striped">
+    <thead>
+        <tr><th>序号</th>
+            <th>商品编码</th>
+            <th>商品名称</th>
+            <th>类别编码</th>
+            <th>类别名称</th>
+            <th>商品价格</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {{ self_item.num }}
+            </td>
+            <td>
+                {{ self_item.product_code }}
+            </td>
+            <td>
+                <a href={{ self_item.product_url }} target='_blank'>{{ self_item.product_name }}</a>
+            </td>
+            <td>
+                {{ self_item.product_class_code }}
+            </td>
+            <td>
+                {{ self_item.product_class_name }}
+            </td>
+            <td>
+                {{ self_item.product_price }}
+            </td>
+    </tbody>
+</table>
+
+
+{% if page_obj %}
+<h3>
+    <div class="div_float_left">
+        目前线上推荐商品信息如下：
+    </div>
+    <div class="div_float_right">
+        <a href='/recommend/new/product_code/{{ self_item.product_code }}' target='_blank'>item-based协同过滤推荐结果</a>
+    </div>
+</h3>
+<table class="table table-striped">
+    <thead>
+        <tr><th>序号</th>
+            <th>商品编码</th>
+            <th>商品名称</th>
+            <th>类别编码</th>
+            <th>类别名称</th>
+            <th>商品价格</th>
+        </tr>
+    </thead>
+    <tbody>
+     {% for item in page_obj %}
+        <tr>
+            <td>
+                {{ item.num }}
+            </td>
+            <td>
+                {{ item.product_code }}
+            </td>
+            <td>
+                <a href={{ item.product_url }} target='_blank'>{{ item.product_name }}</a>
+            </td>
+            <td>
+                {{ item.product_class_code }}
+            </td>
+            <td>
+                {{ item.product_class_name }}
+            </td>
+             <td>
+                 {{ item.product_price }}
+            </td>
+     {% endfor %}
+        </tr>
+    </tbody></table>
+
+{% else %}
+{# 注释: 这里可以换成自己的对象 #}
+    <p>没有任何推荐商品信息</p>
+{% endif %}
+
+{% endblock %}

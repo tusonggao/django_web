@@ -23,3 +23,4 @@ class PdfReplaceForm(forms.Form):
     file1 = forms.FileField(label="Replacement page")
     file2 = forms.FileField(label="PDF document to be replaced")
     page = forms.IntegerField(label="Replace page number")
+

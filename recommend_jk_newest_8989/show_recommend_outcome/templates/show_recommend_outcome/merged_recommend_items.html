@@ -1,0 +1,156 @@
+{% extends "show_recommend_outcome/base.html" %}
+
+{% block title %}展示推荐结果信息{% endblock %}
+
+{% block content %}
+
+<h3 style='float:right;'>
+    <a href='/recommend/'>返回主商品列表</a>
+</h3>
+
+<h3 style='text-align:center;'>详情页主商品信息</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>商品编码</th>
+            <th>商品名称</th>
+            <th>类别编码</th>
+            <th>类别名称</th>
+            <th>商品价格</th>
+            <th>半年销量</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {{ self_item.product_code }}
+            </td>
+            <td>
+                <a href={{ self_item.product_url }} target='_blank'>{{ self_item.product_name }}</a>
+            </td>
+            <td>
+                {{ self_item.product_class_code }}
+            </td>
+            <td>
+                {{ self_item.product_class_name }}
+            </td>
+            <td>
+                {{ self_item.product_price }}
+            </td>
+            <td>
+                {{ self_item.amount }}
+            </td>
+    </tbody>
+</table>
+
+<div style="width:48%;height:auto; overflow:auto; float:left">
+{% if page_obj_new %}
+<h3>
+    <div class="div_float_left">
+        Item-Based协同过滤推荐商品
+    </div>
+</h3>
+<br/>
+<table class="table table-striped">
+    <thead>
+        <tr><th>序号</th>
+            <th>商品编码</th>
+            <th>商品名称</th>
+            <th>类别编码</th>
+            <th>类别名称</th>
+            <th>商品价格</th>
+            <th>半年销量</th>
+        </tr>
+    </thead>
+    <tbody>
+     {% for item in page_obj_new %}
+        <tr>
+            <td>
+                {{ item.num }}
+            </td>
+            <td>
+                {{ item.product_code }}
+            </td>
+            <td>
+                <a href={{ item.product_url }} target='_blank'>{{ item.product_name }}</a>
+            </td>
+            <td>
+                {{ item.product_class_code }}
+            </td>
+            <td>
+                {{ item.product_class_name }}
+            </td>
+             <td>
+                 {{ item.product_price }}
+            </td>
+            <td>
+                {{ item.amount }}
+            </td>
+     {% endfor %}
+        </tr>
+    </tbody></table>
+
+{% else %}
+{# 注释: 这里可以换成自己的对象 #}
+    <p>没有任何推荐商品信息</p>
+{% endif %}
+
+</div>
+
+    <div style="width:4%; height:auto;overflow:auto;"></div>
+
+<div style="width:48%; height:auto;overflow:auto; float:right">
+
+{% if page_obj_old %}
+<h3>
+    <div class="div_float_left">
+        目前线上推荐商品
+    </div>
+</h3>
+<br/>
+<table class="table table-striped">
+    <thead>
+        <tr><th>序号</th>
+            <th>商品编码</th>
+            <th>商品名称</th>
+            <th>类别编码</th>
+            <th>类别名称</th>
+            <th>商品价格</th>
+            <th>半年销量</th>
+        </tr>
+    </thead>
+    <tbody>
+     {% for item in page_obj_old %}
+        <tr>
+            <td>
+                {{ item.num }}
+            </td>
+            <td>
+                {{ item.product_code }}
+            </td>
+            <td>
+                <a href={{ item.product_url }} target='_blank'>{{ item.product_name }}</a>
+            </td>
+            <td>
+                {{ item.product_class_code }}
+            </td>
+            <td>
+                {{ item.product_class_name }}
+            </td>
+             <td>
+                 {{ item.product_price }}
+            </td>
+            <td>
+                {{ item.amount }}
+            </td>
+     {% endfor %}
+        </tr>
+    </tbody></table>
+
+{% else %}
+{# 注释: 这里可以换成自己的对象 #}
+    <p>没有任何推荐商品信息</p>
+{% endif %}
+</div>
+
+{% endblock %}
